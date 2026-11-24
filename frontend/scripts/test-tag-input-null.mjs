@@ -9,7 +9,7 @@ import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 
 const frontend_root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
-const test_dir = path.join(frontend_root, '.tag-input-test')
+const test_dir = path.join(frontend_root, 'node_modules', '.cache', 'tag-input-test')
 await mkdir(test_dir, { recursive: true })
 await build({
   entryPoints: [path.join(frontend_root, 'src/modules/browser/components/TagInput.tsx')],
