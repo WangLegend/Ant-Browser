@@ -3,9 +3,9 @@ import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 
 interface TagInputProps {
-  value: string[]
+  value: string[] | null | undefined
   onChange: (tags: string[]) => void
-  suggestions?: string[]
+  suggestions?: string[] | null
   placeholder?: string
 }
 
@@ -15,7 +15,10 @@ interface DropdownPosition {
   width: number
 }
 
-export function TagInput({ value, onChange, suggestions = [], placeholder = '输入标签后按回车' }: TagInputProps) {
+export function TagInput({ value: raw_value, onChange, suggestions: raw_suggestions, placeholder = '输入标签后按回车' }: TagInputProps) {
+  // Persisted empty slices may arrive from the backend as null.
+  const value = raw_value ?? []
+  const suggestions = raw_suggestions ?? []
   const [input, setInput] = useState('')
   const [showSuggestions, setShowSuggestions] = useState(false)
   const [position, setPosition] = useState<DropdownPosition | null>(null)

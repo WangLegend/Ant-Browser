@@ -397,7 +397,7 @@ export function BrowserEditPage() {
         memoryLimitMb: current.memoryLimitMb || 0,
         launchArgs: currentLaunchArgs,
         lastLaunchArgs: current.lastLaunchArgs || [],
-        tags: current.tags,
+        tags: current.tags ?? [],
         keywords: current.keywords || [],
         groupId: current.groupId || '',
       })

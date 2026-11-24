@@ -4,6 +4,7 @@
   "version": "1.9.4",
   "type": "module",
   "scripts": {
+    "test:tag-input": "node --test scripts/test-tag-input-null.mjs",
     "ensure:native": "node ./scripts/ensure-rollup-native.mjs",
     "postinstall": "npm run ensure:native",
     "dev": "node ./scripts/dev-watcher.mjs",
